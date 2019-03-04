@@ -11,12 +11,12 @@ assets
     img
 ```
 
-##NPM
+#NPM
 ```shell
 npm install jcyl-menu-portal
 ```
 
-##Importación de dependencias
+#Importación de dependencias
 
 Importar en angular.json:
 ```js

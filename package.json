@@ -1,8 +1,20 @@
 {
   "name": "jcyl-menu-portal",
   "version": "0.0.3",
+  "author": "David Parro Rubio",
+  "homepage": "https://www.jcyl.es/junta/guia/guia-estilos-tablas.html",
+  "keywords": [
+    "jcyl",
+    "menu",
+    "portal"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidparro/jcyl-menu-portal"
+  },
   "peerDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0"
-  }
+  },
+  "license": "MIT"
 }
