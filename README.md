@@ -1,5 +1,11 @@
 # MenuPortal
 
+Esta librería está basada en la [guía de estilos de la Junta de Castilla y León](https://www.jcyl.es/junta/guia/guia-estilos.html) para implementar los estilos mediante un componente Angular.
+
+Con este componente podemos generar el menú para un portal.
+
+##Instalación
+
 Debemos descargar desde el [Repositorio de la junta de Castilla y León](https://github.com/juntadecastillayleon) las carpetas de la guía de estilos, para poder importar los css, js, fuentes, etc.
 
 Copiar todo dentro de assets, dejando la estructura así:
@@ -11,12 +17,12 @@ assets
     img
 ```
 
-#NPM
+##NPM
 ```shell
 npm install jcyl-menu-portal
 ```
 
-#Importación de dependencias
+##Importación de dependencias
 
 Importar en angular.json:
 ```js
