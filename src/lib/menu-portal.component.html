@@ -29,7 +29,7 @@
                                 <ul>
                                     <ng-container *ngFor="let hijo of item.hijos">
                                         <li *ngIf="!hijo.esExterno" [routerLink]="[hijo.enlace]" class="handy">
-                                            <a>{{hijo.etiqueta}}</a>
+                                            <a [routerLink]="[hijo.enlace]">{{hijo.etiqueta}}</a>
                                         </li>
                                         <li *ngIf="hijo.esExterno" class="handy">
                                             <a [href]="hijo.enlace" target="_blank">{{hijo.etiqueta}}</a>
