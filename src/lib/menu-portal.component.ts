@@ -20,13 +20,12 @@ export class MenuPortalComponent implements OnInit {
         document.getElementById('main-menu').style.width = '100%';
     }
     ngOnInit() {
-        console.log('Items: ', this.config);
-        $('document').ready(() => {
-            console.log('Cargado');
-            // $('#main-menu').sidr();
-        });
         $(document).ready(() => {
-            $('#main-menu-sticky-wrapper').sticky();
+            $('#main-menu-sticky-wrapper').sticky(
+                {
+                    zIndex: 1
+                }
+            );
         });
     }
 
