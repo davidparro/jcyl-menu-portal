@@ -10,8 +10,8 @@
                 </span>
                 <span class="hamburger-text">Menú</span>
             </button>
-            <div id="sidr">
-                <ul id="menu"role="navigation">
+            <div id="sidr" role="navigation">
+                <ul id="menu">
                     <ng-container *ngFor="let item of config">
                         <li *ngIf="!item.hijos || item.hijos.length === 0"
                             [class]="'items-' + config.length"
