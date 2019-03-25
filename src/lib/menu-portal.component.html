@@ -11,7 +11,7 @@
                 <span class="hamburger-text">Menú</span>
             </button>
             <div id="sidr">
-                <ul id="menu">
+                <ul id="menu"role="navigation">
                     <ng-container *ngFor="let item of config">
                         <li *ngIf="!item.hijos || item.hijos.length === 0"
                             [class]="'items-' + config.length"
