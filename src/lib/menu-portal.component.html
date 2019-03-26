@@ -13,7 +13,7 @@
             <div id="sidr">
                 <ul id="menu" role="menu">
                     <ng-container *ngFor="let item of config; let i = index">
-                        <li *ngIf="!item.hijos || item.hijos.length === 0" [class]="'items-' + config.length"
+                        <li role="menuitem" *ngIf="!item.hijos || item.hijos.length === 0" [class]="'items-' + config.length"
                             class="handy" [routerLink]="[item.enlace]">
                             <a [routerLink]="[item.enlace]">{{item.etiqueta}}</a>
                         </li>
@@ -25,12 +25,12 @@
                                 <img src="assets/img/sidr-mernu-cerrado.png" alt="menu cerrado" />
                             </a>
                             <div class="submenu">
-                                <ul>
+                                <ul role="menu">
                                     <ng-container *ngFor="let hijo of item.hijos">
-                                        <li *ngIf="!hijo.esExterno" [routerLink]="[hijo.enlace]" class="handy">
+                                        <li role="menuitem" *ngIf="!hijo.esExterno" [routerLink]="[hijo.enlace]" class="handy">
                                             <a [routerLink]="[hijo.enlace]">{{hijo.etiqueta}}</a>
                                         </li>
-                                        <li *ngIf="hijo.esExterno" class="handy">
+                                        <li role="menuitem" *ngIf="hijo.esExterno" class="handy">
                                             <a [href]="hijo.enlace" target="_blank">{{hijo.etiqueta}}</a>
                                         </li>
                                     </ng-container>
