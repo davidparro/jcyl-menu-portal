@@ -10,8 +10,8 @@
                 </span>
                 <span class="hamburger-text">Menú</span>
             </button>
-            <div id="sidr" role="menu">
-                <ul id="menu">
+            <div id="sidr">
+                <ul id="menu" role="menu">
                     <ng-container *ngFor="let item of config; let i = index">
                         <li *ngIf="!item.hijos || item.hijos.length === 0" [class]="'items-' + config.length"
                             class="handy" [routerLink]="[item.enlace]">
