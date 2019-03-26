@@ -1,5 +1,10 @@
-import { Component, OnInit, Input, HostListener } from '@angular/core';
+import {
+    Component, OnInit, Input, HostListener,
+    NgZone, ChangeDetectorRef,
+    OnDestroy, AfterViewInit
+} from '@angular/core';
 import { MenuItem } from './menu-portal-models';
+import { FocusMonitor } from '@angular/cdk/a11y';
 declare var $: any;
 
 @Component({
@@ -9,10 +14,14 @@ declare var $: any;
         './menu-portal.component.scss'
     ]
 })
-export class MenuPortalComponent implements OnInit {
+export class MenuPortalComponent implements OnInit, OnDestroy, AfterViewInit {
     @Input() config: MenuItem[];
 
-    constructor() { }
+    constructor(
+        private focusMonitor: FocusMonitor,
+        private cdr: ChangeDetectorRef,
+        private ngZone: NgZone
+    ) { }
 
     @HostListener('window:resize', ['$event'])
     onResize(event) {
@@ -39,5 +48,27 @@ export class MenuPortalComponent implements OnInit {
             }
         }
         return res;
+    }
+
+    ngAfterViewInit() {
+        this.config.forEach((element, index) => {
+            const ele = document.getElementById('submenu' + index);
+            if (ele) {
+                this.focusMonitor.monitor(ele, true)
+                    .subscribe(origin => this.ngZone.run(() => {
+                        if (origin) {
+                            ele.classList.add('activo');
+                        }
+                        this.cdr.markForCheck();
+                    }));
+            }
+        });
+    }
+
+    ngOnDestroy() {
+        this.config.forEach((element, index) => {
+            const ele = document.getElementById('submenu' + index);
+            this.focusMonitor.stopMonitoring(ele);
+        });
     }
 }

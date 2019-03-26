@@ -17,6 +17,11 @@ assets
     img
 ```
 
+Para que sea accesible mediante teclado, debemos importar angular material [Getting started](https://material.angular.io/guide/getting-started):
+```
+npm install --save @angular/material @angular/cdk @angular/animations
+```
+
 ##NPM
 ```shell
 npm install jcyl-menu-portal
