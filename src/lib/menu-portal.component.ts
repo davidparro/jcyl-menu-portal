@@ -52,10 +52,10 @@ export class MenuPortalComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
     ngAfterViewInit() {
-        this.config.forEach((element, index) => {
+        /*this.config.forEach((element, index) => {
             const ele = document.getElementById('submenu' + index);
             if (ele) {
-                this.focusMonitor.monitor(ele, true)
+                this.focusMonitor.monitor(ele, false)
                     .subscribe(
                         origin => this.ngZone.run(
                             () => {
@@ -75,13 +75,19 @@ export class MenuPortalComponent implements OnInit, OnDestroy, AfterViewInit {
                         )
                     );
             }
-        });
+        });*/
     }
 
     showSubmenu(event, element) {
         if (ENTER === event.keyCode) {
-            document.getElementById(element).classList.remove('activo-focus');
-            document.getElementById(element).classList.add('activo');
+            const ele = document.getElementById(element);
+            if (ele.classList.contains('activo')) {
+                document.getElementById(element).classList.remove('activo');
+                document.getElementById(element).classList.add('activo-focus');
+            } else {
+                document.getElementById(element).classList.remove('activo-focus');
+                document.getElementById(element).classList.add('activo');
+            }
         }
     }
 
