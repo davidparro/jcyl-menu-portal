@@ -11,27 +11,28 @@
                 <span class="hamburger-text">Menú</span>
             </button>
             <div id="sidr">
-                <ul id="menu" role="menu">
+                <ul id="main-menu" role="menu">
                     <ng-container *ngFor="let item of config; let i = index">
-                        <li role="menuitem" *ngIf="!item.hijos || item.hijos.length === 0" [class]="'items-' + config.length"
+                        <li tabindex="-1" role="menuitem" *ngIf="!item.hijos || item.hijos.length === 0" [class]="'items-' + config.length"
                             class="handy" [routerLink]="[item.enlace]">
-                            <a [routerLink]="[item.enlace]">{{item.etiqueta}}</a>
+                            <a tabindex="0" [routerLink]="[item.enlace]">{{item.etiqueta}}</a>
                         </li>
                         <li *ngIf="item.hijos && item.hijos.length >= 0" [class]="'items-' + config.length"
                             class="handy" tabindex="0" [id]="'submenu' + i">
                             <a>{{item.etiqueta}}</a>
 
-                            <a class="menu-focus con-submenu">
+                            <a class="menu-focus con-submenu" tabindex="-1" 
+                            (keydown)="showSubmenu($event, 'submenu' + i)">
                                 <img src="assets/img/sidr-mernu-cerrado.png" alt="menu cerrado" />
                             </a>
                             <div class="submenu">
                                 <ul role="menu">
                                     <ng-container *ngFor="let hijo of item.hijos">
-                                        <li role="menuitem" *ngIf="!hijo.esExterno" [routerLink]="[hijo.enlace]" class="handy">
-                                            <a [routerLink]="[hijo.enlace]">{{hijo.etiqueta}}</a>
+                                        <li tabindex="-1" *ngIf="!hijo.esExterno" [routerLink]="[hijo.enlace]" class="handy">
+                                            <a role="menuitem" [routerLink]="[hijo.enlace]">{{hijo.etiqueta}}</a>
                                         </li>
-                                        <li role="menuitem" *ngIf="hijo.esExterno" class="handy">
-                                            <a [href]="hijo.enlace" target="_blank">{{hijo.etiqueta}}</a>
+                                        <li tabindex="-1" *ngIf="hijo.esExterno" class="handy">
+                                            <a role="menuitem" [href]="hijo.enlace" target="_blank">{{hijo.etiqueta}}</a>
                                         </li>
                                     </ng-container>
                                 </ul>
