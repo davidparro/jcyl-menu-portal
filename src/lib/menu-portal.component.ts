@@ -15,7 +15,7 @@ declare var $: any;
         './menu-portal.component.scss'
     ]
 })
-export class MenuPortalComponent implements OnInit, OnDestroy, AfterViewInit {
+export class MenuPortalComponent implements OnInit, OnDestroy {
     @Input() config: MenuItem[];
 
     constructor(
@@ -49,33 +49,6 @@ export class MenuPortalComponent implements OnInit, OnDestroy, AfterViewInit {
             }
         }
         return res;
-    }
-
-    ngAfterViewInit() {
-        /*this.config.forEach((element, index) => {
-            const ele = document.getElementById('submenu' + index);
-            if (ele) {
-                this.focusMonitor.monitor(ele, false)
-                    .subscribe(
-                        origin => this.ngZone.run(
-                            () => {
-                                if (origin) {
-                                    if (origin === 'keyboard') {
-                                        $('#' + ele.getAttribute('id') + '>a.menu-focus').css('opacity', 1);
-                                    }
-                                    ele.classList.add('activo');
-                                    ele.classList.add('activo-focus');
-                                } else {
-                                    $('#' + ele.getAttribute('id') + '>a.menu-focus').css('opacity', 0);
-                                    ele.classList.remove('activo')
-                                    ele.classList.remove('activo-focus');
-                                }
-                                this.cdr.markForCheck();
-                            }
-                        )
-                    );
-            }
-        });*/
     }
 
     showSubmenu(event, element) {

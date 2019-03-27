@@ -4,7 +4,6 @@
 a.menu-focus:focus{
 	opacity:1;
 }
-#main-menu li:focus a{
-    background-color: #fff;
-    border-top: 5px solid #ba0c2f;
+#main-menu ul li a.con-submenu {
+    width: 100%;
 }
